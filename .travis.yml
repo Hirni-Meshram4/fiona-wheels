@@ -50,6 +50,7 @@ jobs:
     os: linux
     env:
     - PLAT=aarch64
+    - MB_ML_VER=2014
     - MB_PYTHON_VERSION=3.6
     - NP_BUILD_DEP=numpy==1.14.5
     - NP_TEST_DEP=numpy==1.14.5
@@ -65,6 +66,7 @@ jobs:
     os: linux
     env:
     - PLAT=aarch64
+    - MB_ML_VER=2014
     - MB_PYTHON_VERSION=3.7
     - NP_BUILD_DEP=numpy==1.14.5
     - NP_TEST_DEP=numpy==1.14.5
@@ -80,6 +82,7 @@ jobs:
     os: linux
     env:
     - PLAT=aarch64
+    - MB_ML_VER=2014
     - MB_PYTHON_VERSION=3.8
     - NP_BUILD_DEP=numpy==1.17.3
     - NP_TEST_DEP=numpy==1.17.3
