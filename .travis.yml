@@ -15,8 +15,7 @@ env:
   global:
   - REPO_DIR=Fiona
   - BUILD_COMMIT=1.8.18
-  - UNICODE_WIDTH=32
-  - USE_CCACHE=1
+ 
 
 addons:
   artifacts:
@@ -29,12 +28,16 @@ jobs:
     os: linux
     env:
     - PLAT=x86_64
+    - UNICODE_WIDTH=32
+    - USE_CCACHE=1
     - MB_PYTHON_VERSION=2.7
     - NP_BUILD_DEP=numpy==1.10.4
     - NP_TEST_DEP=numpy==1.11.3
   - name: "Python 3.5 x86_64 linux"
     os: linux
     env:
+    - UNICODE_WIDTH=32
+    - USE_CCACHE=1
     - MB_PYTHON_VERSION=3.5
     - NP_BUILD_DEP=numpy==1.14.5
     - NP_TEST_DEP=numpy==1.14.5
@@ -42,6 +45,8 @@ jobs:
     os: linux
     env:
     - PLAT=x86_64
+    - UNICODE_WIDTH=32
+    - USE_CCACHE=1
     - MB_PYTHON_VERSION=3.6
     - NP_BUILD_DEP=numpy==1.14.5
     - NP_TEST_DEP=numpy==1.14.5
@@ -58,6 +63,8 @@ jobs:
     os: linux
     env:
     - PLAT=x86_64
+    - UNICODE_WIDTH=32
+    - USE_CCACHE=1
     - MB_PYTHON_VERSION=3.7
     - NP_BUILD_DEP=numpy==1.14.5
     - NP_TEST_DEP=numpy==1.14.5
@@ -74,6 +81,8 @@ jobs:
     os: linux
     env:
     - PLAT=x86_64
+    - UNICODE_WIDTH=32
+    - USE_CCACHE=1
     - MB_PYTHON_VERSION=3.8
     - NP_BUILD_DEP=numpy==1.17.3
     - NP_TEST_DEP=numpy==1.17.3
@@ -90,6 +99,8 @@ jobs:
     os: osx
     language: generic
     env:
+    - UNICODE_WIDTH=32
+    - USE_CCACHE=1
     - MB_PYTHON_VERSION=3.5
     - NP_BUILD_DEP=numpy==1.14.5
     - NP_TEST_DEP=numpy==1.14.5
@@ -97,6 +108,8 @@ jobs:
     os: osx
     language: generic
     env:
+    - UNICODE_WIDTH=32
+    - USE_CCACHE=1
     - MB_PYTHON_VERSION=3.6
     - NP_BUILD_DEP=numpy==1.14.5
     - NP_TEST_DEP=numpy==1.14.5
@@ -104,6 +117,8 @@ jobs:
     os: osx
     language: generic
     env:
+    - UNICODE_WIDTH=32
+    - USE_CCACHE=1
     - MB_PYTHON_VERSION=3.7
     - NP_BUILD_DEP=numpy==1.14.5
     - NP_TEST_DEP=numpy==1.14.5
@@ -111,6 +126,8 @@ jobs:
     language: generic
     osx_image: xcode10.1
     env:
+    - UNICODE_WIDTH=32
+    - USE_CCACHE=1
     - MB_PYTHON_VERSION=3.8
     - NP_BUILD_DEP=numpy==1.17.3
     - NP_TEST_DEP=numpy==1.17.3
