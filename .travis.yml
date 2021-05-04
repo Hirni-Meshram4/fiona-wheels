@@ -24,7 +24,7 @@ addons:
 
 jobs:
   include:
-  - name: "Python 2.7 x86_64 linux"
+  - name: "Python 2.7 x86_64 and linux"
     os: linux
     env:
     - PLAT=x86_64
