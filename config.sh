@@ -86,7 +86,7 @@ function build_nghttp2 {
 
 function build_curl {
     if [ -e curl-stamp ]; then return; fi
-    CFLAGS=-fPIC
+    CFLAGS="$CFLAGS -g -O2"
     CXXFLAGS="$CXXFLAGS -g -O2"
     echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
     build_nghttp2
@@ -103,8 +103,8 @@ function build_curl {
     fetch_unpack https://curl.haxx.se/download/curl-${CURL_VERSION}.tar.gz
     (cd curl-${CURL_VERSION} \
         && if [ -z "$IS_OSX" ]; then \
-        LIBS=-ldl ./configure -fPIC $flags; else \
-        ./configure -fPIC $flags; fi\
+        LIBS=-ldl ./configure $flags; else \
+        ./configure $flags; fi\
 	&& echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" \
         && make -j4 \
 	&& echo "***********************************************" \
