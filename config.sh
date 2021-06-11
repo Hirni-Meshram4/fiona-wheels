@@ -9,6 +9,18 @@ function build_geos {
     build_simple geos $GEOS_VERSION https://download.osgeo.org/geos tar.bz2
 }
 
+function build_openssl {
+    if [ -e openssl-stamp ]; then return; fi
+    fetch_unpack ${OPENSSL_DOWNLOAD_URL}/${OPENSSL_ROOT}.tar.gz
+    check_sha256sum $ARCHIVE_SDIR/${OPENSSL_ROOT}.tar.gz ${OPENSSL_HASH}
+    (cd ${OPENSSL_ROOT} \
+        && ./config no-ssl2 no-shared -fPIC --prefix=$BUILD_PREFIX \
+	&& echo "++++++++++++++++++++++++++++++++++++++++++++++" \
+        && make -j4 \
+	&& echo "000000000000000000000000000000000000000000000000" \
+        && make install)
+    touch openssl-stamp
+}
 
 function build_jsonc {
     build_simple json-c $JSONC_VERSION https://s3.amazonaws.com/json-c_releases/releases tar.gz
