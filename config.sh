@@ -12,7 +12,7 @@ function build_geos {
 function build_openssl {
     if [ -e openssl-stamp ]; then return; fi
     fetch_unpack ${OPENSSL_DOWNLOAD_URL}/${OPENSSL_ROOT}.tar.gz
-    check_sha256sum $ARCHIVE_SDIR/${OPENSSL_ROOT}.tar.gz ${OPENSSL_HASH}
+    #check_sha256sum $ARCHIVE_SDIR/${OPENSSL_ROOT}.tar.gz ${OPENSSL_HASH}
     (cd ${OPENSSL_ROOT} \
         && ./config no-ssl2 no-shared -fPIC --prefix=$BUILD_PREFIX \
 	&& echo "++++++++++++++++++++++++++++++++++++++++++++++" \
