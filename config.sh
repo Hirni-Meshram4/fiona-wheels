@@ -91,9 +91,9 @@ function build_curl {
         && if [ -z "$IS_OSX" ]; then \
         LIBS=-ldl ./configure $flags; else \
         ./configure $flags; fi\
-	&& echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+	&& echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" \
         && make -j4 \
-	&& echo "***********************************************"
+	&& echo "***********************************************" \
         && make install)
     touch curl-stamp
 }
