@@ -76,7 +76,9 @@ function build_nghttp2 {
     fetch_unpack https://github.com/nghttp2/nghttp2/releases/download/v${NGHTTP2_VERSION}/nghttp2-${NGHTTP2_VERSION}.tar.gz
     (cd nghttp2-${NGHTTP2_VERSION}  \
         && ./configure --enable-lib-only --prefix=$BUILD_PREFIX \
+	&& echo "11111111111111111111111111111111111111111111111" \
         && make -j4 \
+	&& echo "2222222222222222222222222222222222222222222222" \
         && make install)
     touch nghttp2-stamp
 }
