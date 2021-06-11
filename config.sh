@@ -86,7 +86,7 @@ function build_curl {
         build_openssl
 	echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     fi
-#    fetch_unpack https://curl.haxx.se/download/curl-${CURL_VERSION}.tar.gz
+    fetch_unpack https://curl.haxx.se/download/curl-${CURL_VERSION}.tar.gz
     (cd curl-${CURL_VERSION} \
         && if [ -z "$IS_OSX" ]; then \
         LIBS=-ldl ./configure $flags; else \
