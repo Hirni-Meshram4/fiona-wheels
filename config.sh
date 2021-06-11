@@ -89,8 +89,8 @@ function build_curl {
     fetch_unpack https://curl.haxx.se/download/curl-${CURL_VERSION}.tar.gz
     (cd curl-${CURL_VERSION} \
         && if [ -z "$IS_OSX" ]; then \
-        LIBS=-ldl ./configure $flags; else \
-        ./configure $flags; fi\
+        CFLAGS=-fPIC LIBS=-ldl ./configure $flags; else \
+        CFLAGS=-fPIC ./configure $flags; fi\
 	&& echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" \
         && make -j4 \
 	&& echo "***********************************************" \
