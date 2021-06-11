@@ -72,9 +72,11 @@ function build_nghttp2 {
 
 function build_curl {
     if [ -e curl-stamp ]; then return; fi
-    CFLAGS="$CFLAGS -g -O2"
+    CFLAGS=-fPIC
     CXXFLAGS="$CXXFLAGS -g -O2"
+    echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
     build_nghttp2
+    echo "###############################################"
     local flags="--prefix=$BUILD_PREFIX --with-nghttp2=$BUILD_PREFIX"
     if [ -n "$IS_OSX" ]; then
         return
@@ -82,13 +84,16 @@ function build_curl {
     else  # manylinux
         flags="$flags --with-ssl"
         build_openssl
+	echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     fi
 #    fetch_unpack https://curl.haxx.se/download/curl-${CURL_VERSION}.tar.gz
     (cd curl-${CURL_VERSION} \
         && if [ -z "$IS_OSX" ]; then \
         LIBS=-ldl ./configure $flags; else \
         ./configure $flags; fi\
+	&& echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
         && make -j4 \
+	&& echo "***********************************************"
         && make install)
     touch curl-stamp
 }
