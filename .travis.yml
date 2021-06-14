@@ -71,6 +71,7 @@ before_install:
 
 install:
     - clean_code $REPO_DIR $BUILD_COMMIT
+    - export CFLAGS=-fPIC
     - build_wheel $REPO_DIR $PLAT
     - ls -l ${TRAVIS_BUILD_DIR}/wheelhouse/
     - unzip -l ${TRAVIS_BUILD_DIR}/wheelhouse/*.whl
