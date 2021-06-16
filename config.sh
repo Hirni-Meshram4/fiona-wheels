@@ -75,8 +75,7 @@ function build_curl {
     if [ -e curl-stamp ]; then return; fi
     CFLAGS="$CFLAGS -g -O2"
     CXXFLAGS="$CXXFLAGS -g -O2"
-    echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-    build_nghttp2
+    #build_nghttp2
     echo "###############################################"
     local flags="--prefix=$BUILD_PREFIX"
     #--with-nghttp2=$BUILD_PREFIX"
