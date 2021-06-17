@@ -93,7 +93,7 @@ function build_curl {
         LIBS=-ldl ./configure $flags; else \
         ./configure $flags; fi\
 	&& echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" \
-        && make -j4 \
+       # && make -j4 \
 	&& echo "***********************************************" \
         && make install)
     touch curl-stamp
